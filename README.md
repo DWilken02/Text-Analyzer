@@ -61,7 +61,7 @@ Output: 3
 Test #12
 const "Red! Red zoinks . I like red, green, and yellow.";
 const word = "Red";
-omitOffensiveWords(text)
+omitOffensiveWords(text);
 output: Red! Red **** . I like red, green, and yellow.
 
 Test #13
@@ -69,3 +69,30 @@ const text = "";
 const word = "";
 boldPassage(word, text);
 Output: passed
+
+Test #14
+const word = "hello"
+const text = "yo"
+boldPassage(word, text);
+
+Test #15
+const word = "hello";
+const text = "hello";
+boldPassage(word, text);
+Output: <p><strong>hello</strong></p>
+
+Test #16
+const word = "hello";
+const text = "hello there";
+boldPassage(word, text);
+Output: <p><strong>hello</strong> there</p>
+
+Test #17
+const text = "Hi there hey yo hi hi yay yo whoa there whoa yay";
+countWords(text);
+Output: ["hi: 3", "there: 2", "hey: 1", "yo: 2", "yay: 2", "whoa: 2"]
+
+Test #18
+const input = ["hi: 3", "there: 2", "hey: 1", "yo: 2", "yay: 2", "whoa: 2"];
+organizeOutput(input);
+Output: ["h1: 3", "there: 2", "yo: 2", "yay: 2", "whoa: 2", "hey: 1"]
