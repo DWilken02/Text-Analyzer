@@ -68,25 +68,26 @@ function boldPassage(word, text) {
   return p;
 }
 
-/*
-1. Sort words array
-2. Loop through words array
-3. Check current word for if it is the same as the prior word
-4. Make the sure the word being checked isn't already in the results array
-*/
 function countWordsNew(text) {
   const words = text.toLowerCase().split(" ").sort();
-  const output = [];
+  const outputArr = [];
   let counter = 1;
   words.forEach(function(currentWord, index) {
     if (currentWord == words[index + 1]) {
       counter++;
     } else {
-      output.push(currentWord + ": " + counter);
+      outputArr.push(currentWord + ": " + counter);
       counter = 1;
     }
   })
-  return output;
+  outputArr.sort(function(a,b) {
+    const aArray = a.split(" ");
+    const bArray = b.split(" ");
+    const aNumber = parseInt(aArray[1]);
+    const bNumber = parseInt(bArray[1]);
+    return bNumber - aNumber;
+  })
+  return outputArr;
 }
 function countWords(text) {
   const words = text.split(" ");
@@ -135,7 +136,7 @@ function displayWordCountOutput(passage) {
 
 function organizeOutput(input) {
   const ulElement = document.createElement("ul");
-  wordCountOutput.forEach(function(wordAndCount) {
+  input.forEach(function(wordAndCount) {
     const liElement = document.createElement("li");
     liElement.append(wordAndCount);
     ulElement.append(liElement);

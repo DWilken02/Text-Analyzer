@@ -95,4 +95,10 @@ Output: ["hi: 3", "there: 2", "hey: 1", "yo: 2", "yay: 2", "whoa: 2"]
 Test #18
 const input = ["hi: 3", "there: 2", "hey: 1", "yo: 2", "yay: 2", "whoa: 2"];
 organizeOutput(input);
-Output: ["h1: 3", "there: 2", "yo: 2", "yay: 2", "whoa: 2", "hey: 1"]
+Output: ["hi: 3", "there: 2", "yo: 2", "yay: 2", "whoa: 2", "hey: 1"]
+
+Test #19
+const text = "Hi there hey yo hi hi yay yo whoa there whoa yay";
+const word = "i";
+boldPassage(word, text);
+Output: <p>H<strong>i</strong> there hey yo h<strong>i</strong> h<strong>i</strong> yay yo whoa there whoa yay</p>
