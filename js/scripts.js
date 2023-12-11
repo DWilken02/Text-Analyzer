@@ -51,22 +51,40 @@ function boldPassage(word, text) {
   if (isEmpty(word) || isEmpty(text)) {
     return null;
   }
-  const p = document.createElement("p");
+  const outputArray = [];
   let textArray = text.split(" ");
-  textArray.forEach(function(element, index) {
-    if (word === element) {
+  textArray.forEach(function(element) {
+    if (element.includes(word)) {
+      const boldSubStr = element.substr(element.indexOf(word), word.length);
       const bold = document.createElement("strong");
-      bold.append(element);
-      p.append(bold);
+      bold.innerHTML = boldSubStr;
+      const outputString = element.replace(boldSubStr, bold.outerHTML);
+      outputArray.push(outputString);
     } else {
-      p.append(element);
-    }
-    if (index !== (textArray.length - 1)) {
-      p.append(" ");
+      outputArray.push(element);
     }
   });
-  return p;
+  return outputArray.join(" ");
 }
+
+// function boldPassage(word, text) {
+//   if (isEmpty(word) || isEmpty(text)) {
+//     return null;
+//   }
+//   const outputArray = [];
+//   let textArray = text.split(" ");
+//   textArray.forEach(function(element) {
+//     if (element.includes(word)) {
+//       const boldSubStr = element.substr(element.indexOf(word), word.length);
+//       const bold = "<strong>" + boldSubStr + "</strong>";
+//       const outputString = element.replace(boldSubStr, bold);
+//       outputArray.push(outputString);
+//     } else {
+//       outputArray.push(element);
+//     }
+//   });
+//   return outputArray.join(" ");
+// }
 
 function countWordsNew(text) {
   const words = text.toLowerCase().split(" ").sort();
@@ -122,7 +140,7 @@ function handleFormSubmission(event) {
   document.getElementById("selected-count").innerText = occurrencesOfWord;
   let boldedPassage = boldPassage(word, passage);
   if (boldedPassage) {
-    document.querySelector("div#bolded-passage").append(boldedPassage);
+    document.querySelector("div#bolded-passage").innerHTML = boldedPassage;
   } else {
     document.querySelector("div#bolded-passage").innerText = null;
   }
