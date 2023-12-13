@@ -1,3 +1,18 @@
+# Text-Analyzer
+
+#### By **DWilken02**
+
+#### _Analyzes entered text_
+
+## Technologies used
+
+* HTML
+* JavaScript
+
+## Description
+
+This page analyzes the text you enter and outputs the words in order based on how many times they are entered. There is also an optional section were you can enter a word, part of a word, or a single letter which would then bold the word or the part of the word that you entered and output the sentence with the bolded words that you entered
+
 ## Tests:
 
 Test #1
@@ -102,3 +117,16 @@ const text = "Hi there hey yo hi hi yay yo whoa there whoa yay";
 const word = "i";
 boldPassage(word, text);
 Output: <p>H<strong>i</strong> there hey yo h<strong>i</strong> h<strong>i</strong> yay yo whoa there whoa yay</p>
+
+## Setup/Installation
+
+1. Click the green code button
+2. Then click download zip
+3. Open the project folder
+4. Then drag the index.html file to a browser of your choice
+
+## License
+
+If you run into any issues please contact me at DW@gmail.com.
+
+Copyright (c) _12/12/23_ _DWilken02_
